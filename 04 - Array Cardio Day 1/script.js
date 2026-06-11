@@ -85,12 +85,50 @@ const reduced = inventors.reduce(
 );
 
 // 5. Sort the inventors by years lived
+const yearsLived = inventors.sort(
+  (a, b) => a.passed - a.year - (b.passed - b.year),
+);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+const boulevards = [
+  "Boulevard Auguste-Blanqui",
+  "Boulevard Barbès",
+  "Boulevard Beaumarchais",
+  "Boulevard de l'Amiral-Bruix",
+  "Boulevard Mortier",
+  "Boulevard Poniatowski",
+  "Boulevard Soult",
+  "Boulevard des Capucines",
+  "Boulevard de la Chapelle",
+  "Boulevard de Clichy",
+  "Boulevard du Crime",
+  "Boulevard du Général-d'Armée-Jean-Simon",
+  "Boulevard Haussmann",
+  "Boulevard de l'Hôpital",
+  "Boulevard des Italiens",
+  "Boulevard Lefebvre",
+  "Boulevard de la Madeleine",
+  "Boulevard de Magenta",
+  "Boulevard Malesherbes",
+  "Boulevard Marguerite-de-Rochechouart",
+  "Boulevard Montmartre",
+  "Boulevard du Montparnasse",
+  "Boulevard Raspail",
+  "Boulevard Richard-Lenoir",
+  "Boulevard Saint-Germain",
+  "Boulevard Saint-Michel",
+  "Boulevard de Sébastopol",
+  "Boulevard de Strasbourg",
+  "Boulevard du Temple",
+  "Boulevard Voltaire",
+  "Boulevard Hippolyte-Marquès",
+];
+const deBoulevards = boulevards.filter((boulevard) => boulevard.includes("de"));
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+const lastNames = people.sort();
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
@@ -110,3 +148,11 @@ const data = [
   "car",
   "truck",
 ];
+const counts = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+console.log(counts);
